@@ -46,6 +46,14 @@ class BlogController {
         await this.blogService.deleteById(id);
         res.redirect(301, '/information');
     }
+    searchBlog = async (req: Request, res: Response) =>{
+        console.log('checkkk')
+        let letter = await req.query.searchBlog;
+        //let letter = 'tim'
+        let print = await this.blogService.searchBlogs(letter);
+        console.log(letter)
+        res.render('afSignIn/searchProduct', {listBlog: print});
+    }
 }
 
 export default new BlogController();

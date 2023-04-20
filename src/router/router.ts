@@ -18,4 +18,6 @@ router.get('/delete/:id', BlogControler.deleteBlog)
 router.get('/sign_out', PageController.signOut)
 router.get('/change/:id', UserController.bfChangeInfor)
 router.post('/change/:id', UserController.afChangeInfor)
+router.get('/search', BlogControler.searchBlog)
+//router.post('/search', BlogControler.searchBlog)
 export default router

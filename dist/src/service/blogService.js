@@ -29,6 +29,9 @@ class BlogService {
         this.deleteById = async (id) => {
             await blogs_1.Blogs.deleteOne({ _id: id });
         };
+        this.searchBlogs = async (letter) => {
+            return await blogs_1.Blogs.find({ textBlog: { $regex: letter, $options: 'i' } }).populate('user');
+        };
     }
 }
 exports.default = new BlogService();

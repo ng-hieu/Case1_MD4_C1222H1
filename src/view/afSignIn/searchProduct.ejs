@@ -21,7 +21,7 @@
 <!-- Page Navbar -->
 <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
     <div class="container">
-        <a class="logo" href="/home_af">IRU</a>
+        <a class="logo" href="/home_bf">IRU</a>
         <ul class="nav">
             <li class="item">
                 <a class="link" href="#blog">Blog</a>
@@ -29,17 +29,8 @@
             <li class="item">
                 <a class="link" href="#contact">Contact</a>
             </li>
-            <li class="item">
-                <a class="link" href="/information">Information</a>
-            </li>
-            <li class="item ml-md-3">
-                <a href="/sign_out" class="btn btn-primary">Sign Out</a>
-            </li>
         </ul>
         <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
-            <div class="hamburger-box">
-                <div class="hamburger-inner"></div>
-            </div>
         </a>
     </div>
 </nav><!-- End of Page Navbar -->
@@ -52,7 +43,7 @@
             <span class="up">HI!</span>
             <span class="down">I am Iru Blog</span>
         </h1>
-        <p class="header-subtitle">JUST TELL YOUR STORY</p>
+        <p class="header-subtitle">AFTER YOUR SEARCH</p>
     </div>
 </header><!-- end of page header -->
 <div class="navbar-center">
@@ -76,7 +67,7 @@
             <div class="blog-card-body">
                 <h5 class="blog-card-title"><%=item.titleBlog%></h5>
                 <p class="blog-card-caption">
-                    <p>By: <%=item.user.nameUser%></p>
+                <p>By: <%=item.user.nameUser%></p>
                 </p>
                 <p><%= item.textBlog%></p>
             </div>

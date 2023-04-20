@@ -23,5 +23,6 @@ router.get('/delete/:id', blogController_1.default.deleteBlog);
 router.get('/sign_out', pageController_1.default.signOut);
 router.get('/change/:id', userController_1.default.bfChangeInfor);
 router.post('/change/:id', userController_1.default.afChangeInfor);
+router.get('/search', blogController_1.default.searchBlog);
 exports.default = router;
 //# sourceMappingURL=router.js.map

@@ -36,6 +36,9 @@ declare class BlogService {
     }, never>>;
     editBlog: (id: any, blog: any) => Promise<void>;
     deleteById: (id: any) => Promise<void>;
+    searchBlogs: (letter: any) => Promise<Omit<import("mongoose").Document<unknown, {}, import("../entity/blogs").IBlog> & Omit<import("../entity/blogs").IBlog & {
+        _id: import("mongoose").Types.ObjectId;
+    }, never>, never>[]>;
 }
 declare const _default: BlogService;
 export default _default;
