@@ -13,6 +13,19 @@ class UserService {
             let check = await users_1.Users.findOne({ nameUser: user.nameUser, password: user.password });
             return check;
         };
+        this.showUserEdit = async (id) => {
+            let user = await users_1.Users.find({ _id: id });
+            return user[0];
+        };
+        this.editUser = async (id, user) => {
+            await users_1.Users.updateOne({ _id: id }, {
+                $set: {
+                    nameUser: `${user.nameUser}`,
+                    ageUser: `${user.ageUser}`,
+                    image: `${user.image}`
+                }
+            });
+        };
     }
 }
 exports.default = new UserService();

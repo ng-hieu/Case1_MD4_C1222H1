@@ -22,7 +22,8 @@ class BlogController {
         }
     }
     addNewBlog = async (req: Request, res: Response) => {
-        console.log(req.body)
+        let idUser = req.session['user']._id;
+        req.body.user = idUser;
         this.blogService.addBlog(req.body);
         res.redirect(301, '/home_af')
     }

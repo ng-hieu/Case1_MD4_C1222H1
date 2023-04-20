@@ -33,6 +33,19 @@ class UserController {
                 res.redirect(301, '/home_af');
             }
         };
+        this.bfChangeInfor = async (req, res) => {
+            let id = req.params.id;
+            let userNeedEdit = await this.userService.showUserEdit(id);
+            res.render('afSignIn/changeInfor', { user: userNeedEdit });
+        };
+        this.afChangeInfor = async (req, res) => {
+            let id = req.params.id;
+            let user = req.body;
+            console.log(id);
+            console.log(user);
+            await this.userService.editUser(id, user);
+            res.redirect(301, '/information');
+        };
         this.userService = userService_1.default;
         this.blogService = blogService_1.default;
     }

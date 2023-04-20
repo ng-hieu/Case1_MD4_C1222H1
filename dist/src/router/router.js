@@ -21,5 +21,7 @@ router.get('/edit/:id', blogController_1.default.bfEditBlog);
 router.post('/edit/:id', blogController_1.default.afEditBlog);
 router.get('/delete/:id', blogController_1.default.deleteBlog);
 router.get('/sign_out', pageController_1.default.signOut);
+router.get('/change/:id', userController_1.default.bfChangeInfor);
+router.post('/change/:id', userController_1.default.afChangeInfor);
 exports.default = router;
 //# sourceMappingURL=router.js.map

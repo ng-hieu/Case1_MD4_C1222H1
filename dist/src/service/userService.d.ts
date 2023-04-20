@@ -31,6 +31,10 @@ declare class UserService {
     checkUser: (user: any) => Promise<import("mongoose").Document<unknown, {}, import("../entity/users").IUser> & Omit<import("../entity/users").IUser & {
         _id: import("mongoose").Types.ObjectId;
     }, never>>;
+    showUserEdit: (id: any) => Promise<import("mongoose").Document<unknown, {}, import("../entity/users").IUser> & Omit<import("../entity/users").IUser & {
+        _id: import("mongoose").Types.ObjectId;
+    }, never>>;
+    editUser: (id: any, user: any) => Promise<void>;
 }
 declare const _default: UserService;
 export default _default;

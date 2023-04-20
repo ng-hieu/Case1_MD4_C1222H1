@@ -3,34 +3,46 @@
 <head>
     <%- include('../partical/head') %>
     <style>
-        table{
+        table {
             margin-left: auto;
             margin-right: auto;
+            border: 1px solid #695AA6;
         }
-        tr .rootTbl{
+
+        tr .rootTbl {
+            text-align: left;
+            border: 1px solid #695AA6;
             font-family: 'Baloo Paaji';
             font-size: 28px;
             color: #695AA6;
         }
-        tr .chanceTbl{
+
+        tr .chanceTbl {
+            border: 1px solid #695AA6;
             font-size: 20px;
-            font-family: "Open Sans", sans-serif;
-            color: #111111;
+            font-family: 'Baloo Paaji';
+            color: #302b62;
         }
+
         button:hover {
+            border: 1px solid #695AA6;
             background-color: white;
             color: #695AA6;
         }
+
         button {
+            border-radius: 14px ;
             border: 1px solid white;
             background-color: #695AA6;
             color: white;
             font-family: "Open Sans", sans-serif;
             font-size: 17px;
         }
-        a{
+
+        a {
             color: white;
         }
+
     </style>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
@@ -65,51 +77,51 @@
         <p class="header-subtitle">JUST TELL YOUR STORY</p>
     </div>
 </header><!-- end of page header -->
-<!-- infor section -->
-<section class="section" >
+<!-- about section -->
+<section class="section pt-0" id="about">
     <!-- container -->
     <div class="container text-center">
-        <h6 class="section-title mb-6">Infor</h6>
-        <table border="1px">
-            <tr>
-                <td class="rootTbl">Name </td>
-                <td class="rootTbl">Age </td>
-                <td class="rootTbl">Image </td>
-            </tr>
-            <tr>
-                <td class="chanceTbl"><%=inforUser.nameUser%></td>
-                <td class="chanceTbl"><%=inforUser.ageUser%></td>
-                <td class="chanceTbl"><img src="<%=inforUser.image%>" alt="avatar"></td>
-            </tr>
-        </table>
+        <!-- about wrapper -->
+        <div class="about">
+            <div class="about-img-holder">
+                <img src="<%= inforUser.image %>" class="about-img">
+            </div>
+            <div class="about-caption">
+                <p class="section-subtitle">Who Am I ?</p>
+                <h2 class="section-title mb-3"><%= inforUser.nameUser %></h2>
+                <h2 class="section-title mb-3"><%= inforUser.ageUser %></h2>
+                <button><a href="/change/<%= inforUser.id %>">Change Infor</a></button>
+            </div>
+        </div><!-- end of about wrapper -->
     </div><!-- end of container -->
-</section><!-- end of infor section -->
+</section> <!-- end of about section -->
 <section class="section" id="blog">
     <!-- container -->
     <div class="container text-center">
         <p class="section-subtitle">Recent Posts?</p>
         <h6 class="section-title mb-6">Blog</h6>
         <!-- blog-wrapper -->
-        <% listBlog.map(item => {%>
+        <% listBlog.map(item => { %>
         <div class="blog-card">
             <div class="blog-card-header">
-                <img src="<%=item.image%>" class="blog-card-img">
+                <img src="<%= item.image %>" class="blog-card-img">
             </div>
             <div class="blog-card-body">
-                <h5 class="blog-card-title"><%=item.titleBlog%></h5>
+                <h5 class="blog-card-title"><%= item.titleBlog %></h5>
                 <p class="blog-card-caption">
-                <p>By: <%=item.user.nameUser%></p>
+                <p>By: <%= item.user.nameUser %></p>
                 </p>
-                <p><%= item.textBlog%></p>
+                <p><%= item.textBlog %></p>
             </div>
             <div>
-                <button><a href="/edit/<%= item.id%>">Edit</a></button>
+                <button><a href="/edit/<%= item.id %>">Edit</a></button>
             </div>
             <div>
-                <button><a href="/delete/<%= item.id%>">Delete</a></button>
+                <button onclick="return confirm('Do you want to delete?')"
+                ><a href="/delete/<%= item.id %>">Delete</a></button>
             </div>
         </div>
-        <%})%><!-- end of blog wrapper -->
+        <% }) %><!-- end of blog wrapper -->
 
 
     </div><!-- end of container -->

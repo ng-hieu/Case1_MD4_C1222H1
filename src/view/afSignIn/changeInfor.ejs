@@ -34,32 +34,29 @@
     <div class="header-content container">
         <h1 class="header-title">
             <span class="up">HI!</span>
-            <span class="down">Register</span>
+            <span class="down">Change your infor</span>
         </h1>
-        <p class="header-subtitle">JUST REGISTER YOUR ACCOUNT</p>
+        <p class="header-subtitle">JUST CHANGE YOUR INFOR</p>
     </div>
 </header><!-- end of page header -->
 <!-- infor section -->
 <section class="section" >
     <!-- container -->
     <div class="container text-center">
-        <h6 class="section-title mb-6">Register</h6>
+        <h6 class="section-title mb-6">Change</h6>
         <form method="post">
             <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <input type="text" size="50" class="form-control" name="nameUser" placeholder="Your Name" required>
+                    <input type="text" size="50" class="form-control" name="nameUser" value="<%=user.nameUser%>" >
                 </div>
                 <div class="form-group col-sm-6">
-                    <input type="text" class="form-control" name="password" placeholder="Enter Password" requried>
-                </div>
-                <div class="form-group col-sm-6">
-                    <input type="text" class="form-control" name="ageUser" placeholder="Age " requried>
+                    <input type="text" class="form-control" name="ageUser" value="<%=user.ageUser%>" >
                 </div>
                 <div class="form-group col-sm-6">
                     <input type="hidden" name="image" id ='image'>
                     <input type="file" id="fileButton" onchange="uploadImage(event)">
                 </div>
-                <button type="submit">Register</button>
+                <button type="submit">Change</button>
             </div>
         </form>
     </div><!-- end of container -->

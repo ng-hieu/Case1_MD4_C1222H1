@@ -5,8 +5,6 @@ class PageController {
         this.pageAddBlog = async (req, res) => {
             if (req.session['user']) {
                 res.render('afSignIn/addNewBlog');
-                let idUser = await req.session['user']['_id'];
-                res.render('afSignIn/addNewBlog', { idUser: idUser });
             }
             else {
                 res.redirect(301, '/sign_in');
