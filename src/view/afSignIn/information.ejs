@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partical/head') %>
+    <style>
+        table{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        tr .rootTbl{
+            font-family: 'Baloo Paaji';
+            font-size: 28px;
+            color: #695AA6;
+        }
+        tr .chanceTbl{
+            font-size: 20px;
+            font-family: "Open Sans", sans-serif;
+            color: #111111;
+        }
+        button:hover {
+            background-color: white;
+            color: #695AA6;
+        }
+        button {
+            border: 1px solid white;
+            background-color: #695AA6;
+            color: white;
+            font-family: "Open Sans", sans-serif;
+            font-size: 17px;
+        }
+        a{
+            color: white;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+<!-- Page Navbar -->
+<nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+    <div class="container">
+        <a class="logo" href="/home_af">IRU</a>
+        <ul class="nav">
+            <li class="item">
+                <a class="link" href="/create">Add Blog</a>
+            </li>
+            <li class="item ml-md-3">
+                <a href="/home_bf" class="btn btn-primary">Sign Out</a>
+            </li>
+        </ul>
+        <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+            <div class="hamburger-box">
+                <div class="hamburger-inner"></div>
+            </div>
+        </a>
+    </div>
+</nav><!-- End of Page Navbar -->
+
+<!-- page header -->
+<header id="home" class="header">
+    <div class="overlay"></div>
+    <div class="header-content container">
+        <h1 class="header-title">
+            <span class="up">HI!</span>
+            <span class="down">Your information</span>
+        </h1>
+        <p class="header-subtitle">JUST TELL YOUR STORY</p>
+    </div>
+</header><!-- end of page header -->
+<!-- infor section -->
+<section class="section" >
+    <!-- container -->
+    <div class="container text-center">
+        <h6 class="section-title mb-6">Infor</h6>
+        <table border="1px">
+            <tr>
+                <td class="rootTbl">Name </td>
+                <td class="rootTbl">Age </td>
+                <td class="rootTbl">Image </td>
+            </tr>
+            <tr>
+                <td class="chanceTbl"><%=inforUser.nameUser%></td>
+                <td class="chanceTbl"><%=inforUser.ageUser%></td>
+                <td class="chanceTbl"><img src="<%=inforUser.image%>" alt="avatar"></td>
+            </tr>
+        </table>
+    </div><!-- end of container -->
+</section><!-- end of infor section -->
+<section class="section" id="blog">
+    <!-- container -->
+    <div class="container text-center">
+        <p class="section-subtitle">Recent Posts?</p>
+        <h6 class="section-title mb-6">Blog</h6>
+        <!-- blog-wrapper -->
+        <% listBlog.map(item => {%>
+        <div class="blog-card">
+            <div class="blog-card-header">
+                <img src="<%=item.image%>" class="blog-card-img">
+            </div>
+            <div class="blog-card-body">
+                <h5 class="blog-card-title"><%=item.titleBlog%></h5>
+                <p class="blog-card-caption">
+                <p>By: <%=item.user.nameUser%></p>
+                </p>
+                <p><%= item.textBlog%></p>
+            </div>
+            <div>
+                <button><a href="/edit/<%= item.id%>">Edit</a></button>
+            </div>
+            <div>
+                <button><a href="/delete/<%= item.id%>">Delete</a></button>
+            </div>
+        </div>
+        <%})%><!-- end of blog wrapper -->
+
+
+    </div><!-- end of container -->
+</section><!-- end of blog section -->
+<%- include('../partical/javascript') %>
+</body>
+</html>

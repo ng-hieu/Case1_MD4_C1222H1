@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partical/head') %>
+    <style>
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        tr .rootTbl {
+            font-family: 'Baloo Paaji';
+            font-size: 28px;
+            color: #695AA6;
+        }
+
+        tr .chanceTbl {
+            font-size: 20px;
+            font-family: "Open Sans", sans-serif;
+            color: #111111;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+<!-- Page Navbar -->
+<nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+    <div class="container">
+        <a class="logo" href="/home_af">IRU</a>
+        <ul class="nav">
+            <li class="item">
+                <a class="link" href="#">Change Information</a>
+            </li>
+            <li class="item ml-md-3">
+                <a href="#" class="btn btn-primary">Sign Out</a>
+            </li>
+        </ul>
+        <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+            <div class="hamburger-box">
+                <div class="hamburger-inner"></div>
+            </div>
+        </a>
+    </div>
+</nav><!-- End of Page Navbar -->
+
+<!-- page header -->
+<header id="home" class="header">
+    <div class="overlay"></div>
+    <div class="header-content container">
+        <h1 class="header-title">
+            <span class="up">HI!</span>
+            <span class="down">Sign in</span>
+        </h1>
+        <p class="header-subtitle">JUST SIGN IN YOUR ACCOUNT</p>
+    </div>
+</header><!-- end of page header -->
+<!-- infor section -->
+<section class="section">
+    <!-- container -->
+    <div class="container text-center">
+        <h6 class="section-title mb-6">Sign In</h6>
+        <form method="post">
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <input type="text" size="50" class="form-control" name="nameUser" placeholder="Your Name" required>
+                </div>
+                <div class="form-group col-sm-6">
+                    <input type="text" class="form-control" name="password" placeholder="Enter Password" requried>
+                </div>
+                <div style="margin-left: auto; margin-right: auto">
+                    <button type="submit">Sign In</button>
+                    <button type="button"><a href="/register">Register</a></button>
+                </div>
+            </div>
+        </form>
+    </div><!-- end of container -->
+</section><!-- end of infor section -->
+<%- include('../partical/javascript') %>
+</body>
+</html>

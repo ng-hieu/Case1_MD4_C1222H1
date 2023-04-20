@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partical/head') %>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+<!-- Page Navbar -->
+<nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+    <div class="container">
+        <a class="logo" href="/home_af">IRU</a>
+        <ul class="nav">
+            <li class="item">
+                <a class="link" href="#blog">Blog</a>
+            </li>
+            <li class="item">
+                <a class="link" href="#contact">Contact</a>
+            </li>
+            <li class="item">
+                <a class="link" href="/information">Information</a>
+            </li>
+            <li class="item ml-md-3">
+                <a href="/sign_out" class="btn btn-primary">Sign Out</a>
+            </li>
+        </ul>
+        <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+            <div class="hamburger-box">
+                <div class="hamburger-inner"></div>
+            </div>
+        </a>
+    </div>
+</nav><!-- End of Page Navbar -->
+
+<!-- page header -->
+<header id="home" class="header">
+    <div class="overlay"></div>
+    <div class="header-content container">
+        <h1 class="header-title">
+            <span class="up">HI!</span>
+            <span class="down">I am Iru Blog</span>
+        </h1>
+        <p class="header-subtitle">JUST TELL YOUR STORY</p>
+    </div>
+</header><!-- end of page header -->
+<!-- blog section -->
+<section class="section" id="blog">
+    <!-- container -->
+    <div class="container text-center">
+        <p class="section-subtitle">Recent Posts?</p>
+        <h6 class="section-title mb-6">Blog</h6>
+        <!-- blog-wrapper -->
+        <% listBlog.map(item => {%>
+        <div class="blog-card">
+            <div class="blog-card-header">
+                <img src="<%=item.image%>" class="blog-card-img">
+            </div>
+            <div class="blog-card-body">
+                <h5 class="blog-card-title"><%=item.titleBlog%></h5>
+                <p class="blog-card-caption">
+                    <p>By: <%=item.user.nameUser%></p>
+                </p>
+                <p><%= item.textBlog%></p>
+            </div>
+        </div>
+        <%})%><!-- end of blog wrapper -->
+
+
+    </div><!-- end of container -->
+</section><!-- end of blog section -->
+
+<!-- contact section -->
+<section class="section" id="contact">
+    <div class="container text-center">
+        <p class="section-subtitle">How can you communicate?</p>
+        <h6 class="section-title mb-5">Contact Me</h6>
+        <!-- contact form -->
+        <form method="post">
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <input type="text" size="50" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="form-group col-sm-6">
+                    <input type="email" class="form-control" placeholder="Enter Email" requried>
+                </div>
+                <div class="form-group col-sm-12">
+                    <textarea name="comment" id="comment" rows="6" class="form-control"
+                              placeholder="Write Something"></textarea>
+                </div>
+                <div class="form-group col-sm-12 mt-3">
+                    <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">
+                </div>
+            </div>
+        </form><!-- end of contact form -->
+    </div><!-- end of container -->
+</section><!-- end of contact section -->
+<%- include('../partical/javascript') %>
+</body>
+</html>
