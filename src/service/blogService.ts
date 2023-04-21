@@ -32,7 +32,7 @@ class BlogService {
         await Blogs.deleteOne({_id: id});
     }
     searchBlogs = async (letter) => {
-       return await Blogs.find({textBlog: {$regex: letter, $options: 'i'}}).populate('user')
+       return await Blogs.find({$or:[{textBlog: {$regex: letter, $options: 'i'}}, {titleBlog: {$regex: letter, $options: 'i'}}]}).populate('user')
     }
 }
 

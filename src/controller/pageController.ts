@@ -19,7 +19,6 @@ class PageController {
     signOut =  (req: Request, res: Response) => {
        req.session.destroy(function (err) {
            res.redirect(301, '/home_bf')
-           return res.status(200).json({status: 'success', session: 'cannot access session here'})
        })
     }
 }

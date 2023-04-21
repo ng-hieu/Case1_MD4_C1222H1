@@ -43,11 +43,14 @@ class BlogController {
             res.redirect(301, '/information');
         };
         this.searchBlog = async (req, res) => {
-            console.log('checkkk');
+            let checkSignIn = false;
+            if (req.session['user']) {
+                checkSignIn = true;
+            }
             let letter = await req.query.searchBlog;
             let print = await this.blogService.searchBlogs(letter);
             console.log(letter);
-            res.render('afSignIn/searchProduct', { listBlog: print });
+            res.render('afSignIn/searchProduct', { listBlog: print, check: checkSignIn });
         };
         this.blogService = blogService_1.default;
     }
