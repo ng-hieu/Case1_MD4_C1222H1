@@ -21,6 +21,14 @@ class PageController {
            res.redirect(301, '/home_bf')
        })
     }
+    pageAddMusic = async (req: Request, res: Response) => {
+        if (req.session['user']) {
+            res.render('afSignIn/addMusic')
+
+        } else {
+            res.redirect(301, '/sign_in')
+        }
+    }
 }
 
 export default new PageController();

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partical/head') %>
+    <style>
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid #695AA6;
+        }
+
+        tr .rootTbl {
+            text-align: left;
+            border: 1px solid #695AA6;
+            font-family: 'Baloo Paaji';
+            font-size: 28px;
+            color: #695AA6;
+        }
+
+        tr .chanceTbl {
+            border: 1px solid #695AA6;
+            font-size: 20px;
+            font-family: 'Baloo Paaji';
+            color: #302b62;
+        }
+
+        button:hover {
+            border: 1px solid #695AA6;
+            background-color: white;
+            color: #695AA6;
+        }
+
+        button {
+            border-radius: 14px;
+            border: 1px solid white;
+            background-color: #695AA6;
+            color: white;
+            font-family: "Open Sans", sans-serif;
+            font-size: 22px;
+        }
+
+        a {
+            color: white;
+        }
+
+        button:hover {
+            color: #695AA6 !important;
+            background-color: white !important;
+        }
+
+        button {
+            color: white;
+            background-color: #695AA6;
+            border-radius: 5px;
+        }
+
+        a {
+            color: white;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+<!-- Page Navbar -->
+<nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+    <div class="container">
+        <a class="logo" <% if(check){ %>href="/home_af"
+                <% } %>
+           href="/home_bf">IRU</a>
+        <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+        </a>
+    </div>
+</nav><!-- End of Page Navbar -->
+<!-- page header -->
+<header id="home" class="header">
+    <div class="overlay"></div>
+    <div class="header-content container">
+        <h1 class="header-title">
+            <span class="up">HI!</span>
+            <span class="down">Music</span>
+        </h1>
+        <p class="header-subtitle">CHILL AND FREE</p>
+    </div>
+</header><!-- end of page header -->
+<!-- search blog -->
+<div class="navbar-center">
+    <form action="/searchSong" method="get" style="width: 362px; margin-left: auto; margin-right: auto; font-size: 22px;">
+        <input type="text" placeholder="Search" name="searchBlog" style="border-radius: 5px;">
+        <button type="submit">Search</button>
+    </form>
+</div> <!-- end search blog -->
+<br>
+<!-- about section -->
+<section class="section pt-0" id="about">
+    <!-- container -->
+    <div class="container text-center">
+        <!-- about wrapper -->
+        <% inforMusic.map(item=>{ %>
+            <div class="about">
+                <div class="about-img-holder">
+                    <img src="<%= item.image %>" class="about-img">
+                </div>
+                <div class="about-caption">
+                    <h2 class="section-title mb-3"><%= item.titleMusic %></h2>
+                    <h2 class="section-title mb-3"><%= item.textMusic %></h2>
+                    <p>By: <%= item.user.nameUser %></p>
+                    <audio controls>
+                        <source src="<%= item.music %>" type="audio/mpeg">
+                    </audio> <!-- end audio blog -->
+                </div>
+            </div>
+        <% }) %><!-- end of about wrapper -->
+    </div><!-- end of container -->
+</section> <!-- end of about section -->
+<%- include('./partical/javascript') %>
+</body>
+</html>

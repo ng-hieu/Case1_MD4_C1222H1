@@ -21,6 +21,14 @@ class PageController {
                 res.redirect(301, '/home_bf');
             });
         };
+        this.pageAddMusic = async (req, res) => {
+            if (req.session['user']) {
+                res.render('afSignIn/addMusic');
+            }
+            else {
+                res.redirect(301, '/sign_in');
+            }
+        };
     }
 }
 exports.default = new PageController();
